@@ -3,6 +3,7 @@ var nameSpan = document.querySelector('span')
 var formEl = document.querySelector('form')
 var clear = document.querySelector('#clear')
 var textarea = document.querySelector('textarea')
+// var noteBlock = document.getElementById('notes-area').value
 
 // Retrieve name and note content from cookies and localstorage
 // Then apply them to elements on the page
@@ -12,7 +13,9 @@ formEl.onsubmit = function(e) {
   // prevents form submission
   e.preventDefault()
   // save name element's content to cookies
+  document.cookie = nameSpan.innerHTML
   // save textarea's content to localstorage
+  localStorage.setItem('notes', textarea.value)
   // YOUR CODE HERE
 
   // triggers thumbs up animation
@@ -21,7 +24,9 @@ formEl.onsubmit = function(e) {
 
 clear.onclick = function() {
   // Clear textarea's value
+  textarea.value = ""
   // Clear localstorage's content
+  localStorage.clear();
   // YOUR CODE HERE
 
   // triggers thumbs up animation
