@@ -3,11 +3,17 @@ var nameSpan = document.querySelector('span')
 var formEl = document.querySelector('form')
 var clear = document.querySelector('#clear')
 var textarea = document.querySelector('textarea')
-// var noteBlock = document.getElementById('notes-area').value
 
 // Retrieve name and note content from cookies and localstorage
 // Then apply them to elements on the page
 // YOUR CODE HERE
+var userName = document.cookie || "Your Name"
+nameSpan.innerHTML = userName
+
+var notes = localStorage.getItem('notes')
+if (notes) {
+  textarea.value = notes
+} 
 
 formEl.onsubmit = function(e) {
   // prevents form submission
